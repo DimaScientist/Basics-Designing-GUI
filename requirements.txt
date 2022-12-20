@@ -1,2 +1,6 @@
 PyQt5==5.15.7
 pyqt5-tools==5.15.4.3.2
+alembic==1.9.0
+SQLAlchemy==1.4.45
+python-dotenv==0.18.0
+psycopg2==2.9.5

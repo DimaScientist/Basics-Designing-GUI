@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+
+  gui-postgres:
+    container_name: gui-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: gui
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgresql-data:
